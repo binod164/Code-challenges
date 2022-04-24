@@ -119,3 +119,66 @@ function squareOrSquareRoot(array) {
   }
   return newArr;  
 }
+
+// 7.Write a function that will check if two given characters are the same case.
+
+// If either of the characters is not a letter, return -1
+// If both characters are the same case, return 1
+// If both characters are letters, but not the same case, return 0
+// Examples
+// 'a' and 'g' returns 1
+
+// 'A' and 'C' returns 1
+
+// 'b' and 'G' returns 0
+
+// 'B' and 'g' returns 0
+
+// '0' and '?' returns -1
+
+
+function sameCase(a, b){
+  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+  if(alphabet.includes(a.toLowerCase()) && alphabet.includes(b.toLowerCase())){
+    if((a === a.toLowerCase() && b === b.toLowerCase())|| (a === a.toUpperCase() && b === b.toUpperCase())){
+      return 1 
+    }else{
+      return 0;
+    }  
+  }else{
+  return -1;
+  }
+}
+
+// 8.Convert number to reversed array of digits
+// Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+function digitize(n) {
+  //code here
+  let newArr = [];
+  let a = n.toString().split("").reverse();
+  for(let i = 0; i<a.length; i++){
+    newArr.push(parseInt(a[i]));
+  }
+  return newArr;
+}
+
+// 9.There was a test in your class and you passed it. Congratulations!
+// But you're an ambitious person. You want to know if you're better than the average student in your class.
+
+// You receive an array with your peers' test scores. Now calculate the average and compare your score!
+
+// Return True if you're better, else False!
+
+// Note:
+// Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+
+function betterThanAverage(classPoints, yourPoints) {
+  // Your code here
+  let totalClassPoints = classPoints.reduce((previousValue,currentValue)=> previousValue+currentValue,yourPoints);
+  let averagePoints = totalClassPoints/(classPoints.length+1);
+  if(yourPoints > averagePoints){
+    return true;
+  }
+  return false;
+}
