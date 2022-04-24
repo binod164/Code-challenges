@@ -182,3 +182,104 @@ function betterThanAverage(classPoints, yourPoints) {
   }
   return false;
 }
+
+// 10.Make multiple functions that will return the sum, difference, modulus, product, quotient, and the exponent respectively.
+
+// Please use the following function names:
+
+// addition = add
+
+// multiply = multiply
+
+// division = divide (both integer and float divisions are accepted)
+
+// modulus = mod
+
+// exponential = exponent
+
+// subtraction = subt
+
+// Note: All math operations will be: a (operation) b
+
+function add(a,b){
+  return a+b;
+}
+
+function divide(a,b){
+  return a/b;
+}
+
+function multiply(a,b){
+  return a*b;
+}
+
+function mod(a,b){
+  return a%b;
+}
+ 
+function exponent(a,b){
+  return a**b;
+}
+  
+function subt(a,b){
+  return a-b;
+}
+
+// 11.Write a function that returns a string in which firstname is swapped with last name.
+
+// nameShuffler('john McClane'); => "McClane john"
+
+function nameShuffler(str){
+  //Shuffle It
+  return str.split(" ").reverse().join(" ");
+}
+
+
+// 12.Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on the inside. The strings will not be the same length, but they may be empty ( zero length ).
+
+// Hint for R users:
+
+// The length of string is not always the same as the number of characters
+// For example: (Input1, Input2) --> output
+
+// ("1", "22") --> "1221"
+// ("22", "1") --> "1221"
+
+function solution(a, b){
+  // your code here
+  if(a.length > b.length){
+    return b + a + b;
+  }else{
+    return a + b + a;
+  }
+}
+
+// 13.Your coworker was supposed to write a simple helper function to capitalize a string (that contains a single word) before they went on vacation.
+
+// Unfortunately, they have now left and the code they gave you doesn't work. Fix the helper function they wrote so that it works as intended (i.e. make the first character in the string "word" upper case).
+
+// Don't worry about numbers, special characters, or non-string types being passed to the function. The string lengths will be from 1 character up to 10 characters, but will never be empty.
+
+function capitalizeWord(word) {
+  return `${word[0].toUpperCase()}${word.slice(1)}`;
+}
+
+
+// 14.The BOPE is the squad of special forces of police that usually handles the operations in the Favelas in Rio de Janeiro.
+
+// In this Kata you have to write a function that determine the number of magazines that every soldier has to have in his bag.
+
+// You will receive the weapon and the number of streets that they have to cross. Considering that every street the officer shoots 3 times. Bellow there is the relation of weapons:
+
+// PT92 - 17 bullets
+// M4A1 - 30 bullets
+// M16A2 - 30 bullets
+// PSG1 - 5 bullets
+
+// Example:
+
+// ["PT92", 6] => 2 (6 streets 3 bullets each)
+// ["M4A1", 6] => 1
+
+// The return Will always be an integer so as the params.
+
