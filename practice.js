@@ -265,21 +265,46 @@ function capitalizeWord(word) {
 }
 
 
-// 14.The BOPE is the squad of special forces of police that usually handles the operations in the Favelas in Rio de Janeiro.
+// 15.write me a function stringy that takes a size and returns a string of alternating '1s' and '0s'.
 
-// In this Kata you have to write a function that determine the number of magazines that every soldier has to have in his bag.
+// the string should start with a 1.
 
-// You will receive the weapon and the number of streets that they have to cross. Considering that every street the officer shoots 3 times. Bellow there is the relation of weapons:
+// a string with size 6 should return :'101010'.
 
-// PT92 - 17 bullets
-// M4A1 - 30 bullets
-// M16A2 - 30 bullets
-// PSG1 - 5 bullets
+// with size 4 should return : '1010'.
 
-// Example:
+// with size 12 should return : '101010101010'.
 
-// ["PT92", 6] => 2 (6 streets 3 bullets each)
-// ["M4A1", 6] => 1
+// The size will always be positive and will only use whole numbers.
 
-// The return Will always be an integer so as the params.
+
+function stringy(size) {
+  // your code here   
+  let result = '';
+  for(let i = 1; i <= size; i++ ){
+    if(i % 2 === 0){
+      result += 0;
+    }else{
+      result += 1;
+    }
+  }
+  return result;
+}
+
+// 16.In this simple exercise, you will build a program that takes a value, integer , and returns a list of its multiples up to another value, limit . If limit is a multiple of integer, it should be included as well. There will only ever be positive integers passed into the function, not consisting of 0. The limit will always be higher than the base.
+
+// For example, if the parameters passed are (2, 6), the function should return [2, 4, 6] as 2, 4, and 6 are the multiples of 2 up to 6.
+
+// If you can, try writing it in only one line of code.
+
+function findMultiples(integer, limit) {
+  //your code here
+  let multiples = [];
+  for(let i = integer; i<=limit; i++){
+    if(i%integer === 0){
+      multiples.push(i);
+    }
+  }
+  return multiples;
+}
 
