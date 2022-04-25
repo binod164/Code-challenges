@@ -308,3 +308,50 @@ function findMultiples(integer, limit) {
   return multiples;
 }
 
+
+// 17.Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+
+// Example:
+
+// ["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
+
+// None of the arrays will be empty, so you don't have to worry about that!
+
+
+function removeEveryOther(arr){
+  //your code here
+  let newArr =[];
+  for(let i = 0;i < arr.length; i+=2){
+    newArr.push(arr[i]);
+  }
+  return newArr;
+  
+}
+
+// 18.Implement a function which multiplies two numbers.
+
+function multiply(a,b){
+  return a*b;
+}
+
+// 19.If you can't sleep, just count sheep!!
+
+// Task:
+// Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
+
+var countSheep = function (num){
+  //your code here
+  let result = "";
+  for(let i = 1; i <= num; i++){
+      result += i + " sheep..."
+  }
+  return result;
+}
+
+// 20.Write a function to split a string and convert it into an array of words.
+
+function stringToArray(string){
+
+	// code code code
+  return string.split(" ")
+}
