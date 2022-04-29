@@ -355,3 +355,45 @@ function stringToArray(string){
 	// code code code
   return string.split(" ")
 }
+
+// 21.Given a number n, return the number of positive odd numbers below n, EASY!
+
+function oddCount(n){
+  let count = 0;
+  // your code here
+  for(let i = 1; i<n; i++){
+    if(i%2 !== 0 ){
+      count +=1;
+    }
+  }
+  return count
+}
+//function oddCount(n){
+  // return Math.floor(n/2);
+  // }
+
+  // 22.Given a string s, find the length of the longest substring without repeating characters.
+
+  var lengthOfLongestSubstring = function(s) {
+    if(s.length === 1){
+        return 1;
+    }
+    let str = "";
+    let longestSub = "";
+    for(let i = 0;i< s.length;i++){
+        str = s[i];
+        for(let j = i+1; j <s.length; j++){
+            if(!str.includes(s[j])){
+            str = str + s[j];
+            }else{
+                    break;
+                }
+            }
+        if(str.length > longestSub.length){
+                longestSub = str;
+        }
+    }
+    
+    return longestSub.length;
+    
+};
