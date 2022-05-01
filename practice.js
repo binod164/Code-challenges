@@ -397,3 +397,78 @@ function oddCount(n){
     return longestSub.length;
     
 };
+
+//Blind 75
+
+// 1.Contains Duplicate.Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+var containsDuplicate = function(nums) {
+  let newArr = [];
+  for(let i=0; i<nums.length; i++){
+      if(!newArr.includes(nums[i])){
+          newArr.push(nums[i])
+      }else{
+          return true;
+      }
+  }
+  
+  return false;
+};
+
+//2.Valid Anagram.Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+//An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+var isAnagram = function(s, t) {
+  if(s.length !== t.length){
+      return false;
+  }
+  newS = s.split("").sort();
+  newT = t.split("").sort();
+  for(let i =0;i<s.length; i++){
+      if(newS[i] !== newT[i]){
+          return false;
+      }
+  }
+  return true;
+  
+};
+
+//23.Two Sum.Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+// You can return the answer in any order.
+
+var twoSum = function(nums, target) {
+  for(let i =0; i < nums.length; i++){
+      for(let j = i+1; j < nums.length; j++){
+          if(nums[i] + nums[j] === target){
+              return [i, j];
+          }
+      }
+  }
+};
+
+// 24.Valid palindrome
+// A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+// Given a string s, return true if it is a palindrome, or false otherwise.
+
+var isPalindrome = function(s) {
+  let alphabets = "abcdefghijklmnopqrstuvwxyz0123456789"
+  newS = s.toLowerCase();
+  let newStr = "";
+  for(let i=0; i<s.length; i++){
+      if (alphabets.includes(newS[i])){
+          newStr += newS[i]
+      }
+  }
+  if(newStr.split("").reverse().join('') === newStr){
+      return true;
+  }else{
+      return false;
+  }
+
+};
+
+//
