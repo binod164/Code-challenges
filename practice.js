@@ -471,4 +471,40 @@ var isPalindrome = function(s) {
 
 };
 
-//
+//25.Valid paranthesis.Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+
+var isValid = function(s) {
+  let newStr = ""
+  let openBrackets = "{(["
+  for(let i = 0; i <s.length; i++){
+      if(openBrackets.includes(s[i])){
+          newStr = newStr + s[i]
+      }else{
+          if(newStr[newStr.length-1] !== findPair(s[i])){
+              return false;
+          }else{
+              newStr = newStr.slice(0,newStr.length-1);
+          }     
+      }
+  }
+  return newStr.length > 0? false : true;
+};
+  
+function findPair(str){
+  switch(str){
+      case ")":
+          return "(";
+      case "}":
+          return "{";
+      case "]":
+          return "[";
+      default:
+          return "";
+  }
+  
+}
