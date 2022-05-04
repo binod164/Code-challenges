@@ -581,3 +581,48 @@ let mostWordsFound = function(sentences) {
   }
   return maxWords;
 };
+
+//31.You are given a string s and an integer array indices of the same length. The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.Return the shuffled string.
+
+let restoreString = function(s, indices) {
+  let str = "";
+  for(let i=0; i<s.length; i++){
+      let index = indices.indexOf(i);
+      str = str + s[index];
+  }
+  return str;
+};
+
+//32.You own a Goal Parser that can interpret a string command. The command consists of an alphabet of "G", "()" and/or "(al)" in some order. The Goal Parser will interpret "G" as the string "G", "()" as the string "o", and "(al)" as the string "al". The interpreted strings are then concatenated in the original order.Given the string command, return the Goal Parser's interpretation of command.
+
+let interpret = function(command) {
+  return command.replaceAll("()","o").replaceAll("(al)", "al");
+};
+
+//33.Given an integer x, return true if x is palindrome integer.An integer is a palindrome when it reads the same backward as forward.For example, 121 is a palindrome while 123 is not.
+
+let isPalindrome = function(x) {
+  let str = x.toString();
+  let reverse = "";
+for(let i=0; i<str.length; i++){
+  reverse = str[i] + reverse;
+}
+return str === reverse;
+};
+
+//34.Implement strStr().Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+var strStr = function(haystack, needle) {
+  if(!haystack.includes(needle)){
+      return -1;
+  }else{
+      return haystack.indexOf(needle);
+  }
+  
+};
+
+//35.Write a function that reverses a string. The input string is given as an array of characters s.
+
+var reverseString = function(s) {
+  return s.reverse();
+};
