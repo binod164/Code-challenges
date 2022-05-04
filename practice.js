@@ -80,7 +80,7 @@ function coinCombo (cents) {
 // +9 dog years for second year
 // +5 dog years for each year after that
 
-var humanYearsCatYearsDogYears = function(humanYears) {
+let humanYearsCatYearsDogYears = function(humanYears) {
   
   let years =  [0,0,0];
   years[0] = humanYears;
@@ -339,7 +339,7 @@ function multiply(a,b){
 // Task:
 // Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
 
-var countSheep = function (num){
+let countSheep = function (num){
   //your code here
   let result = "";
   for(let i = 1; i <= num; i++){
@@ -374,7 +374,7 @@ function oddCount(n){
 
   // 22.Given a string s, find the length of the longest substring without repeating characters.
 
-  var lengthOfLongestSubstring = function(s) {
+  let lengthOfLongestSubstring = function(s) {
     if(s.length === 1){
         return 1;
     }
@@ -402,7 +402,7 @@ function oddCount(n){
 
 // 1.Contains Duplicate.Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
-var containsDuplicate = function(nums) {
+let containsDuplicate = function(nums) {
   let newArr = [];
   for(let i=0; i<nums.length; i++){
       if(!newArr.includes(nums[i])){
@@ -418,7 +418,7 @@ var containsDuplicate = function(nums) {
 //2.Valid Anagram.Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 //An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
-var isAnagram = function(s, t) {
+let isAnagram = function(s, t) {
   if(s.length !== t.length){
       return false;
   }
@@ -439,7 +439,7 @@ var isAnagram = function(s, t) {
 
 // You can return the answer in any order.
 
-var twoSum = function(nums, target) {
+let twoSum = function(nums, target) {
   for(let i =0; i < nums.length; i++){
       for(let j = i+1; j < nums.length; j++){
           if(nums[i] + nums[j] === target){
@@ -454,7 +454,7 @@ var twoSum = function(nums, target) {
 
 // Given a string s, return true if it is a palindrome, or false otherwise.
 
-var isPalindrome = function(s) {
+let isPalindrome = function(s) {
   let alphabets = "abcdefghijklmnopqrstuvwxyz0123456789"
   newS = s.toLowerCase();
   let newStr = "";
@@ -478,7 +478,7 @@ var isPalindrome = function(s) {
 // Open brackets must be closed by the same type of brackets.
 // Open brackets must be closed in the correct order.
 
-var isValid = function(s) {
+let isValid = function(s) {
   let newStr = ""
   let openBrackets = "{(["
   for(let i = 0; i <s.length; i++){
@@ -508,3 +508,76 @@ function findPair(str){
   }
   
 }
+
+//26.Reverse Words in a String III.Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+
+let reverseWords = function(s) {
+  let arr = s.split(" ");
+  let result = arr.map(element => element.split("").reverse().join(""));
+  return result.join(" ");
+};
+
+//27.First Unique Character in a String.Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
+
+let firstUniqChar = function(s) {
+  let obj = {}
+  for(let i = 0; i<s.length; i++){
+     if(obj[s[i]]){
+        obj[s[i]]++;
+     }else{
+            obj[s[i]] = 1;
+      }
+  }
+  for(let i=0; i<s.length; i++){
+      if(obj[s[i]]===1){
+          return i;
+      }
+  }
+  return -1;
+  
+};
+
+//28.Final Value of Variable After Performing Operations.There is a programming language with only four operations and one variable X:
+
+// ++X and X++ increments the value of the variable X by 1.
+// --X and X-- decrements the value of the variable X by 1.
+// Initially, the value of X is 0.
+
+// Given an array of strings operations containing a list of operations, return the final value of X after performing all the operations.
+
+let finalValueAfterOperations = function(operations) {
+  let X = 0;
+  for(let i = 0; i<operations.length; i++){
+      if(operations[i] === "--X" || operations[i] === "X--"){
+         X = X - 1;
+         }else if(operations[i] === "++X" || operations[i] === "X++" ){
+             X = X +1;
+         }        
+  }
+  return X;
+};
+
+//29.Defanging an IP Address. Given a valid (IPv4) IP address, return a defanged version of that IP address.
+
+// A defanged IP address replaces every period "." with "[.]".
+
+let defangIPaddr = function(address) {
+  return address.replace(/\./g, "[.]"); 
+};
+
+//30.A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
+
+// You are given an array of strings sentences, where each sentences[i] represents a single sentence.
+
+// Return the maximum number of words that appear in a single sentence.
+
+let mostWordsFound = function(sentences) {
+  let maxWords = 0;
+  for(let i=0; i<sentences.length; i++){
+      let numOfWords = sentences[i].split(" ").length;
+      if(numOfWords > maxWords){
+          maxWords = numOfWords; 
+      }
+  }
+  return maxWords;
+};
