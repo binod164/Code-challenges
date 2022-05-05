@@ -626,3 +626,24 @@ var strStr = function(haystack, needle) {
 var reverseString = function(s) {
   return s.reverse();
 };
+
+//36.Given an integer array nums of length n where all the integers of nums are in the range [1, n] and each integer appears once or twice, return an array of all the integers that appears twice.
+
+let findDuplicates = function(nums) {
+  let obj = {};
+  let arr = []
+  for(let i =0; i<nums.length; i++){
+      if(obj[nums[i]]){
+          obj[nums[i]]++;
+      }else{
+          obj[nums[i]] = 1;
+      }
+  }
+  for(let key in obj){
+     if(obj[key] > 1){
+         arr.push(key);
+     }
+  }
+  return arr;
+};
+
