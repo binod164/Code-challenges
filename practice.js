@@ -661,3 +661,45 @@ var fib = function(n) {
   }
   return arr[n];
 };
+
+
+//38.Remove duplicates
+
+let str = "aaaabbbbdcjjjjjj"
+//output: "abdcj"
+
+function removeDuplicate(word){
+    let uniqueItems = new Set(word);
+    return [...uniqueItems].join("");
+}
+
+//OR 
+function unique(str){
+  let obj = {};
+  let result = "";
+  
+  for(let i = 0; i<str.length; i++){
+      if(!obj[str[i]]){
+          obj[str[i]] = 1;
+           result = result + str[i];
+      }else{
+          continue;
+      }
+  }
+  return result;
+  }
+  
+
+removeDuplicate(str);
+
+//39.Reverse a string
+
+
+let s = "Hello World"
+
+let arr = s.split(" ");
+function reverse(arr){
+    return arr.split("").reverse().join("");
+}
+
+reverse(s)
