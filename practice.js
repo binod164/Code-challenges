@@ -800,3 +800,20 @@ function compareTriplets(a, b) {
 return [aliceCount,bobCount];
 }
 
+//45.Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+function diagonalDifference(arr) {
+  // Write your code here
+  let firstSum = 0;
+  let secondSum = 0;
+  for (let i = 0;i<=arr.length-1;i++){
+      firstSum = firstSum + arr[i][i];
+      secondSum = secondSum + arr[arr.length-i-1][i];
+  }
+  
+  return Math.abs(firstSum -secondSum);
+  
+  
+
+}
+
