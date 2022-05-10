@@ -724,3 +724,54 @@ var longestCommonPrefix = function(strs) {
 
   return strs[0]
 }
+
+//42.Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+//You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+var singleNumber = function(nums) {
+  let obj = {}
+  for (let i=0; i<nums.length; i++){
+      if(!obj[nums[i]]){
+          obj[nums[i]] = 1;
+      }else{
+          obj[nums[i]]++;
+      }
+  }
+  
+  for (let i=0; i<nums.length; i++){
+      if(obj[nums[i]] === 1){
+          return nums[i];
+      }
+  }
+  
+};
+
+
+//43.Print a staircase of size  using # symbols and spaces.
+
+// Note: The last line must have  spaces in it.
+
+// Sample Input
+
+// 6 
+// Sample Output
+
+//      #
+//     ##
+//    ###
+//   ####
+//  #####
+// ######
+
+function staircase(n) {
+  // Write your code here
+  
+for (let i = 1; i <= n; i++) {
+  console.log("#".repeat(i).padStart(n));
+}
+
+}
+
+
+
