@@ -841,16 +841,32 @@ function camelcase(s) {
 //47.You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
 
 var maximumWealth = function(accounts) {
-  maxWealth = 0;
+  let maxWealth = 0;
   let wealth = 0;
   for(let i=0; i<accounts.length; i++){
-      for(let j=0; j<accounts[i].length; j++){
-          wealth += accounts[i][j];
-      }
+      wealth = accounts[i].reduce((a,b)=>a+b,0);
       if(wealth > maxWealth){
           maxWealth = wealth;
       }
       wealth = 0;
+      
   }
   return maxWealth;
+};
+
+//48.Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).Return the running sum of nums.
+
+var runningSum = function(nums) {
+  let newArr =[];
+  let sum = 0;
+  for(let i=0; i<nums.length; i++){
+      for(let j=0; j<=i; j++){
+          sum += nums[j]
+      }
+  newArr.push(sum);
+  sum = 0;
+  }
+  
+  return newArr;
+  
 };
