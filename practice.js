@@ -884,4 +884,20 @@ var removeElement = function(nums, val) {
   return j;
 };
 
-//50.
+//50.Given a string array words, return an array of all characters that show up in all strings within the words (including duplicates). You may return the answer in any order.
+var commonChars = function (words) {
+  let str = words[0];
+  let newStr = "";
+  for(let i=1; i<words.length; i++){
+      newStr = "";
+      for(let j=0; j<words[i].length; j++){
+          if(str.includes(words[i][j])){
+              str = str.replace(words[i][j], "")
+              newStr += words[i][j];
+          }
+          
+      }
+      str = newStr; 
+  }
+  return newStr.split("");
+};
