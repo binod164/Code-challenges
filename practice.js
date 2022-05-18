@@ -956,8 +956,7 @@ let reverseStr = function(s, k) {
 };
 
 
-//53.
-// - Write a function called isPalindrome that accepts a single string argument, then returns true or false depending upon whether or not the string is a palindrome.
+//53. Write a function called isPalindrome that accepts a single string argument, then returns true or false depending upon whether or not the string is a palindrome.
 // - A palindrome is a word or phrase that is the same forward or backward.
 // - Casing and spaces are not included when considering whether or not a string is a palindrome.
 // - If the length of the string is 0 or 1, return true.
@@ -1007,4 +1006,25 @@ function hammingDistance(str1 , str2){
     }
   }
   return count;
+}
+
+//55. Write a function called mumble that accepts a single string argument.
+// - The function should return a string that has each character repeated the number of times according to its position within the string arg. Additionally, each repeated section of characters should be separated by a hyphen (-).
+// - Examples describe it best..
+
+// Examples:
+
+// mumble('X'); //=> 'X'
+// mumble('abc'); //=> 'a-bb-ccc'
+// mumble('121'); //=> '1-22-111'
+// mumble('!A 2'); //=> '!-AA-   -2222'
+// -----------------------------------------------------------------------------*/
+// Your solution for 13-mumble here:
+
+function mumble(str){
+let result = "";
+for(let i = 0; i< str.length ; i++){
+  result += ((i || "") && "-") + str.charAt(i).repeat(i + 1);
+}
+return result;
 }
