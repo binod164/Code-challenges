@@ -1046,3 +1046,30 @@ function fromPairs(arr){
   });
   return obj;
 }
+
+
+//57.- Write a function named flatten that accepts a single array that may contain nested arrays and returns a new "flattened" array.
+// - A flattened array is an array that contains no nested arrays.
+// - Arrays may be nested at any level.
+// - If any of the arrays have duplicate values, those duplicate values should be present in the returned array.
+// - The values in the new array should maintain their ordering, as shown in the examples below.
+
+// Examples:
+
+// flatten( [1, [2, 3]] );
+// //=> [1, 2, 3] (a new array) 
+
+// flatten( [1, [2, [3, [4]]], 1, 'a', ['b', 'c']] );
+// //=> [1, 2, 3, 4, 1, 'a', 'b', 'c']
+
+function flatten(arr){
+  let newArr = [];
+  arr.forEach(element=>{
+    if(Array.isArray(element)){
+      newArr = newArr.concat(flatten(element));
+    }else{
+      newArr.push(element);
+    }
+  });
+  return newArr;
+}
