@@ -1107,3 +1107,26 @@ function primeFactors(num){
     newArr.push(num);
     return newArr;
 }
+
+//59.
+// - Write a function named intersection that accepts two arguments, which are both arrays. The array arguments may contain any mixture of strings, numbers, or booleans - but no reference types (objects).
+// - The function should return a new array containing all elements in common, including repeating element values.
+// - The ordering of the elements in the returned array is not important.
+// - If there are no elements in the arrays in common, the intersection function should return an empty array.
+// - The function should not mutate (change) either argument.
+
+// Examples:
+
+// intersection(['a', 1], []) //=> []
+// intersection(['a', 1], [true, 'a', 15]) //=> ['a']
+// intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
+
+function intersection(arr1, arr2) {
+  let result = [];
+  let newArr2 = [...arr2];
+  arr1.forEach(val => {
+    let idx = newArr2.indexOf(val);
+    if (idx > -1) result.push(newArr2.splice(idx, 1)[0]);
+  });
+  return result;
+}
