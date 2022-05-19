@@ -1130,3 +1130,27 @@ function intersection(arr1, arr2) {
   });
   return result;
 }
+
+//60.- Write a function called balancedBrackets that accepts a single string as an argument.
+// - The input string is composed entirely of parentheses, brackets, or curly braces, i.e., (), [], or {}. Referred to as "braces" from this point forward.
+// - The balancedBrackets function should return true if the string's braces are "balanced" and false if they are not.
+// - The brackets are considered unbalanced if any closing bracket does not close the same type of opening bracket, ignoring already matched brackets between them. These examples may explain it best:
+
+// Examples:
+
+// balancedBrackets( '()' ) // => true
+// balancedBrackets( '(]' ) // => false
+// balancedBrackets( '[{}]' ) // => true
+// balancedBrackets( '[(])' ) // => false
+// balancedBrackets( '[({}[])]' ) // => true
+
+function balancedBrackets(str) {
+  let stack = [];
+  return str.split('').every(c => {
+    if ('([{'.includes(c)) {
+      return stack.push(c);
+    } else {
+      return '() {} []'.includes(stack.pop() + c)
+    }
+  });
+}
