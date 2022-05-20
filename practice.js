@@ -1178,3 +1178,26 @@ function isWinningTicket(ticket){
     return arr[0].includes(String.fromCharCode(arr[1]));
   });
 }
+
+//62.
+// - Write a function called addChecker that accepts two arguments.
+// - The first argument is an array containing at least two integers. The integers in the array have been pre-sorted in ascending order.
+// - The second argument is an integer.
+// - The addChecker function should return true if there are two integers in the array of integers (first argument) that, when added together, equals the integer passed in as the second argument.
+// - If there are no two integers in the array with a sum equal to the second argument, addChecker should return false.
+
+// addChecker( [1, 2], 3 ) // => true
+// addChecker( [-3, 2], 9 ) // => false
+// addChecker( [10, 15, 16, 22], 32 ) // => true
+// addChecker( [10, 15, 16, 22], 19 ) // => false
+
+function addChecker(arr, int) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === int){
+        return true; 
+      } 
+    }
+  }
+  return false;
+}
