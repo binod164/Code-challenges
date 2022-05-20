@@ -1228,3 +1228,21 @@ function totalTaskTime(tasks, numThreads) {
   }
   return time + (tasks.length ? Math.max(...tasks) : 0);
 }
+
+//64.- Write a function called toCamelCase that accepts a single string as an argument.
+// - The toCamelCase function should return the string as camel-cased, removing each _ or - characters and capitalizing the character following the _ or -.
+// - If the string argument does not contain a "_" or a "-", return the same string.
+
+// Examples:
+
+// toCamelCase( 'sei' ) // => 'sei'
+// toCamelCase( 'sei-rocks' ) // => 'seiRocks'
+// toCamelCase( 'banana_Turkey_potato' ) // => 'bananaTurkeyPotato'
+// toCamelCase( 'Mama-mia' ) // => 'MamaMia'
+// toCamelCase( 'A_b_c' ) // => 'ABC'
+
+function toCamelCase(str) {
+  return str.replace(/[_-]\w/g, function(match) {
+    return match.charAt(1).toUpperCase();
+  });
+}
