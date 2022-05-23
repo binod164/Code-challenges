@@ -1367,3 +1367,30 @@ function countTheBits(int){
   let one_bits = binary_val.split("").filter(bit => bit == '1')
   return one_bits.length
 }
+
+
+//69.- Write a function called getNumForIP that accepts a single string as an argument.
+// - The input string is formatted as an IPv4 address used in networking, such as '192.156.99.15'. To the computer, IP addresses are 32-bit binary numbers. However, people usually find it more convenient to work with these numbers as four sets of 8-bit integers in their decimal form. Each set is separated by a '.' character.
+// - The getNumForIP function should return the numeric value of the string IP address being passed in as an argument.
+
+// Hints:
+
+// - Each 8-bit number can hold a value between 0 and 255.
+// - An IP's right most 8-bit number represents how many of 256 raised to the power of 0 (equals 1) there are. The next 8-bit number represents how many of 256 raised to the power of 1 (256) there are, etc. For example, if you took the right-most two 8-bit numbers of the IP address 192.156.99.15, you would have 15 * (256 ** 0), which equals 15, and 99 * (256**1), which equals 25344.
+// - To compute the numeric value for an IP address, you first compute the value for each of the four 8-bit chunks (as described in the above hint), and add them together!
+
+// Examples:
+
+// getNumForIP( '0.0.0.1' ) // => 1
+// getNumForIP( '0.0.2.0' ) // => 512
+// getNumForIP( '192.156.99.15' ) // => 3231474447
+// getNumForIP( '10.0.0.1' ) // => 167772161
+
+function getNumForIP(str) {
+  let chunks = str.split('.').reverse();
+  let sum = 0;
+  chunks.forEach(function(chunk, idx) {
+    sum += parseInt(chunk) * 256**idx;
+  });
+  return sum;
+}
