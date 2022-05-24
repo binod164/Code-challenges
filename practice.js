@@ -1414,3 +1414,38 @@ for (let i = 1; i< nums.length;i++){
 }
 
 };
+
+//71.Given a string s, return the longest palindromic substring in s.
+// Example 1:
+
+// Input: s = "babad"
+// Output: "bab"
+// Explanation: "aba" is also a valid answer.
+// Example 2:
+
+// Input: s = "cbbd"
+// Output: "bb"
+
+var longestPalindrome = function(s) {
+  if (!s || s.length < 1) return "";
+  let start = 0;
+  let end = 0;
+  for (let i = 1; i < s.length; i++) {
+      let odd = getLongestPal(s, i-1, i+1);
+      let even = getLongestPal(s, i-1, i);
+      let longest = Math.max(odd, even);
+      if (longest > end - start) {
+          start = i - Math.floor(longest/2);
+          end = i + Math.floor((longest-1)/2);
+      }
+  }
+  return s.substring(start, end + 1);
+};
+
+function getLongestPal(str, left, right) {
+  while (left >= 0 && right < str.length && str[left] === str[right]) {
+      left--;
+      right++;
+  }
+  return right - left - 1 ;
+}
