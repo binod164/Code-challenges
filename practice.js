@@ -1449,3 +1449,25 @@ function getLongestPal(str, left, right) {
   }
   return right - left - 1 ;
 }
+
+//72.There is a malfunctioning keyboard where some letter keys do not work. All other keys on the keyboard work properly.
+
+// Given a string text of words separated by a single space (no leading or trailing spaces) and a string brokenLetters of all distinct letter keys that are broken, return the number of words in text you can fully type using this keyboard.
+
+var canBeTypedWords = function(text, brokenLetters) {
+  let newText = text.split(' ');
+  
+  let newCount =0;
+  for (let i = 0;i<newText.length; i++){
+      let count = 0;
+    for(let j= 0;j<brokenLetters.length;j++ ){
+        if(newText[i].includes(brokenLetters[j])){
+           count++;
+        }
+    }
+      if (count === 0) {
+          newCount++;
+      }
+  }
+      return newCount;
+};
