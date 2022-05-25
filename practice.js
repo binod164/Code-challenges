@@ -1520,3 +1520,31 @@ function sumOfDigits(num) {
     }
     return sum;
 }
+
+//75.An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
+
+// Given an integer n, return true if n is an ugly number.
+
+var isUgly = function(num) {
+  let newNum = num;
+  let isUglyNum = true;
+  if (num <= 0){
+      return false;
+  }
+  while (newNum > 1) {
+    if (newNum % 2 !== 0 && newNum % 3 !== 0 && newNum % 5!== 0) {
+        isUglyNum = false;
+        break;
+    } else {
+        if (newNum % 2 === 0) {
+            newNum /= 2;
+        } else if (newNum % 3 === 0) {
+            newNum /= 3;
+        } else if (newNum % 5 === 0) {
+            newNum /= 5;
+        }
+    }
+  }
+  return isUglyNum;
+  
+};
