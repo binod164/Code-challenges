@@ -1471,3 +1471,19 @@ var canBeTypedWords = function(text, brokenLetters) {
   }
       return newCount;
 };
+
+//73.Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0
+var reverse = function(x) {
+  let isNegative = x < 0;
+  let positiveNum = Math.abs(x);
+  let result = 0;
+  let limitNum = Math.pow(2,31)-1;
+  let negativeLimitNum = -1 * Math.pow(2,31);
+  for (i = positiveNum; i > 0; i = Math.floor(i/10)) {
+      result = result*10 + i % 10;
+  }
+  if (result===0 || result > limitNum || result < negativeLimitNum) {
+      return 0;
+  }
+  return isNegative ? result*-1 : result;
+};
